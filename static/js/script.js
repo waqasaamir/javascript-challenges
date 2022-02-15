@@ -71,7 +71,7 @@ function finalMessage([yourScore])
         return {'message':'You Won!', 'color':'green'}
     }
 }
-//front end part
+
 function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage)
 {
     var imageDatabase={
@@ -94,8 +94,71 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage)
 
     document.getElementById('flex-box-rps-div').appendChild(humanDiv);
     document.getElementById('flex-box-rps-div').appendChild(messageDiv);
-    document.getElementById('flex-box-rps-div').appendChild(botDiv);
+    document.getElementById('flex-box-rps-div').appendChild(botDiv)
+}
 
+// Chanllenge 4
+ var allButtons= document.getElementsByTagName('button');
+ var copyAllButtons = [];
+ for(let i=0;i<allButtons.length;i++)
+ {
+     copyAllButtons.push(allButtons[i].classList[1]);
+ }
+ function buttonColorChange(selectedButton){
+    if(selectedButton.value=== 'red')
+    {
+        buttonsRed();
+    }else if(selectedButton.value=== 'green')
+    {
+        buttonsGreen();
+    }else if(selectedButton.value=== 'random')
+    {
+        buttonsRandom();
+    }else if(selectedButton.value=== 'reset')
+    {
+        buttonsReset();
+    }
+    else if(selectedButton.value=== 'yellow')
+    {
+        buttonsYellow();
+    }
+ }
+ function buttonsRed(){
+     for(let i=0; i<allButtons.length;i++)
+     {
+         allButtons[i].classList.remove(allButtons[i].classList[1]);
+         allButtons[i].classList.add('btn-danger');
+     }
+ }
+ function buttonsGreen(){
+    for(let i=0; i<allButtons.length;i++)
+    {
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add('btn-success');
+    }
+}
+function buttonsYellow(){
+    for(let i=0; i<allButtons.length;i++)
+    {
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add('btn-warning');
+    }
+}
+function buttonsReset(){
 
+    for(let i=0; i<allButtons.length;i++)
+    {
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add(copyAllButtons[i]);
+    }
+}
+function buttonsRandom(){
+    let choices=['btn-primary','btn-danger','btn-success','btn-warning'];
+    for(let i=0;i<allButtons.length;i++)
+    {
+        let randomNumber= Math.floor(Math.random()*4);
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add(choices[randomNumber]);
+    }
 
 }

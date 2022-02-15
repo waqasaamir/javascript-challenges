@@ -1,6 +1,8 @@
 # javascript-challenges
 
 Simple Javascript challenges to understand basics of javascript
+
+
  Challenge 1: Coverting your age to days by taking data from user using Prompt
  
  Challenge 2: A cat Generator

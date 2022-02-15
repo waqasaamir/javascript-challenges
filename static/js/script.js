@@ -1,6 +1,6 @@
 //Challenge 1
 function ageInDays()
-{
+{  
     var birthYear= prompt('What year were you born in??');
     var ageInDayss= (2022-birthYear)*365;
     var h1= document.createElement('h1');

@@ -169,6 +169,9 @@ const YOU= blackjackGame['you'];
 const DEALER= blackjackGame['dealer'];
 
 const hitSound=new Audio('static/sounds/swish.m4a');
+const loseSound= new Audio('static/sounds/aww.mp3');
+const winSound= new Audio('static/sounds/cash.mp3');
+
 
 
 document.querySelector('#blacjack-hit-button').addEventListener('click',blackjackhit);
@@ -177,23 +180,21 @@ document.querySelector('#blackjack-deal-button').addEventListener('click',blackj
 function blackjackhit(){
 let card= randomCard();
 console.log(card);
-showCard(DEALER);
- showCard(YOU);
+showCard(card,YOU);
 }
 function randomCard(){
     let randomIndex= Math.floor(Math.random()*13);
     return blackjackGame['cards'][randomIndex];
 }
-function showCard(activePlayer){
+function showCard(card,activePlayer){
     let cardImage= document.createElement('img');
-    cardImage.src='static/images/A.png';
+    cardImage.src=`static/images/${card}.png`;
     document.querySelector(activePlayer['div']).appendChild(cardImage);
     hitSound.play();
 }
 function blackjackDeal(){
     let yourImages= document.querySelector('#your-box').querySelectorAll('img');
     let dealerImages=document.querySelector('#dealer-box').querySelectorAll('img');
-
     for(let i=0; i < yourImages.length; i++)
     {
         yourImages[i].remove();
@@ -202,4 +203,6 @@ function blackjackDeal(){
     {
         dealerImages[i].remove();
     }
+    winSound.play();
+
 }

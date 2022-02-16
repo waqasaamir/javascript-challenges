@@ -159,6 +159,10 @@ function buttonsRandom(){
 
 }
 //Challenge 5
+let blackjackGame={
+    'you':{'scoreSpan':'#your-blackjack-score','div':'#your-box','score':0},
+    'dealer':{'scoreSpan':'#dealer-blackjack-score','div':'#dealer-box','score':0}
+}
 
 document.querySelector('#blacjack-hit-button').addEventListener('click',blackjackhit);
 

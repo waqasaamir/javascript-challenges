@@ -29,16 +29,12 @@ function rpsGame(yourChoice){
 var humanChoice, botChoice;
 
 humanChoice=yourChoice.id;
-//console.log('Human Choice:',humanChoice);
 
 botChoice= botChoiceGenerator();
-//console.log('Computer Choice:',botChoice);
 
 result = decideWinner(humanChoice, botChoice);
-//console.log(result);
 
 message = finalMessage(result);
-//console.log(message);
 
 rpsFrontEnd(yourChoice.id,botChoice,message);
 }

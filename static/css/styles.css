@@ -1,7 +1,8 @@
 .container-1,
 .container-2,
 .container-3,
-.container-4 {
+.container-4,
+.container-5 {
   border: 1px solid black;
   margin: 0 auto;
   width: 75%;
@@ -11,13 +12,28 @@
 .flex-box-container-1,
 .flex-box-container-2,
 .flex-box-rps,
-.flex-box-change-color {
+.flex-box-change-color,
+.flex-blackjack-row-1,
+.flex-blackjack-row-2,
+.flex-blackjack-row-3 {
   display: flex;
   border: 1px solid black;
   padding: 10px;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
+}
+.flex-blackjack-row-1,
+.flex-blackjack-row-2 {
+  background: url("/static/images/background.jpg") center;
+  color: white;
+}
+.flex-blackjack-row-1 div {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  height: 350px;
+  flex: 1;
 }
 
 .flex-box-container-1 div {

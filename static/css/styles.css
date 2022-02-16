@@ -35,6 +35,14 @@
   height: 350px;
   flex: 1;
 }
+.flex-blackjack-row-2 button {
+  border: 1px solid black;
+  padding: 10px;
+}
+.flex-blackjack-row-2 div {
+  border: 1px solid black;
+  padding: 10px;
+}
 
 .flex-box-container-1 div {
   display: flex;
@@ -45,6 +53,12 @@
 
 .flex-box-container-2 img {
   margin: 10px;
+}
+.table-1,
+th,
+td {
+  padding: 5px;
+  border: 2px solid black;
 }
 
 .container-2 button {

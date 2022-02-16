@@ -158,3 +158,10 @@ function buttonsRandom(){
     }
 
 }
+//Challenge 5
+
+document.querySelector('#blacjack-hit-button').addEventListener('click',blackjackhit);
+
+function blackjackhit(){
+    alert('Daddy, Harder!');
+}

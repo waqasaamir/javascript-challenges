@@ -1,4 +1,4 @@
-//Challenge 1  Age in Days
+//Challenge 1
 function ageInDays() {
   var birthYear = prompt("What year were you born in??");
   var ageInDayss = (2022 - birthYear) * 365;
@@ -15,7 +15,7 @@ function reset() {
   document.getElementById("ageInDays").remove();
 }
 
-//Challenge 2 Cat Generator
+//Challenge 2
 function generateCat() {
   var image = document.createElement("img");
   var div = document.getElementById("flex-cat-gen");
@@ -24,7 +24,7 @@ function generateCat() {
   div.appendChild(image);
 }
 
-//Challenge 3 Rock, Paper, Scissors
+//Challenge 3
 function rpsGame(yourChoice) {
   var humanChoice, botChoice;
 
@@ -100,7 +100,7 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage) {
   document.getElementById("flex-box-rps-div").appendChild(botDiv);
 }
 
-// Chanllenge 4 Button Color Changer
+// Chanllenge 4
 var allButtons = document.getElementsByTagName("button");
 var copyAllButtons = [];
 for (let i = 0; i < allButtons.length; i++) {
@@ -152,7 +152,7 @@ function buttonsRandom() {
   }
 }
 
-//Challenge 5 Blackjack
+//Challenge 5
 let blackjackGame = {
   you: { scoreSpan: "#your-blackjack-result", div: "#your-box", score: 0 },
   dealer: {
@@ -289,6 +289,20 @@ async function dealerLogic(){
    if(blackjackGame['isHit'] === true){
     blackjackGame['isStand'] = true;
     blackjackGame['isHit'] = false;
+
+    if(YOU['score'] > 21){
+        let card = randomCard();
+        showCard(card, DEALER);
+        updateScore(card, DEALER);
+        showScore(DEALER);
+        await sleep(900);
+
+        blackjackGame["turnsOver"] = true;
+        let winner = computeWinner();
+        showResult(winner);
+
+        return;
+    }
     while((DEALER['score'] < 16 && DEALER['score'] <= YOU['score']) && blackjackGame['isStand'] === true)
     {
             let card = randomCard();

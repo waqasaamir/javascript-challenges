@@ -65,7 +65,7 @@
 th,
 td {
   padding: 5px;
-  border: 2px solid black;
+  border: 2px solid #000000;
 }
 
 .container-2 button {
@@ -74,4 +74,4 @@ td {
 
 .flex-box-rps img:hover {
   box-shadow: 0px 10px 50px rgba(37, 50, 233, 1);
-}
+} 

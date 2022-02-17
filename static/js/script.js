@@ -1,4 +1,4 @@
-//Challenge 1
+//Challenge 1  Age in Days
 function ageInDays() {
   var birthYear = prompt("What year were you born in??");
   var ageInDayss = (2022 - birthYear) * 365;
@@ -15,7 +15,7 @@ function reset() {
   document.getElementById("ageInDays").remove();
 }
 
-//Challenge 2
+//Challenge 2 Cat Generator
 function generateCat() {
   var image = document.createElement("img");
   var div = document.getElementById("flex-cat-gen");
@@ -24,7 +24,7 @@ function generateCat() {
   div.appendChild(image);
 }
 
-//Challenge 3
+//Challenge 3 Rock, Paper, Scissors
 function rpsGame(yourChoice) {
   var humanChoice, botChoice;
 
@@ -100,7 +100,7 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage) {
   document.getElementById("flex-box-rps-div").appendChild(botDiv);
 }
 
-// Chanllenge 4
+// Chanllenge 4 Button Color Changer
 var allButtons = document.getElementsByTagName("button");
 var copyAllButtons = [];
 for (let i = 0; i < allButtons.length; i++) {
@@ -152,7 +152,7 @@ function buttonsRandom() {
   }
 }
 
-//Challenge 5
+//Challenge 5 Blackjack
 let blackjackGame = {
   you: { scoreSpan: "#your-blackjack-result", div: "#your-box", score: 0 },
   dealer: {
@@ -354,4 +354,3 @@ function showResult(winner) {
     document.querySelector("#blackjack-result").style.color = messageColor;
   }
 }
-// 7:25:00

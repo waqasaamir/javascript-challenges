@@ -303,7 +303,7 @@ async function dealerLogic(){
 
         return;
     }
-    while((DEALER['score'] < 16 && DEALER['score'] <= YOU['score']) && blackjackGame['isStand'] === true)
+    while((DEALER['score'] < 16 || DEALER['score'] <= YOU['score']) && blackjackGame['isStand'] === true)
     {
             let card = randomCard();
             showCard(card, DEALER);

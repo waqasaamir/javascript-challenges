@@ -307,13 +307,29 @@ async function dealerLogic(){
 
         return;
     }
-    while((DEALER['score'] < 16 || DEALER['score'] <= YOU['score']) && blackjackGame['isStand'] === true)
+    while((DEALER['score'] < 16 || YOU['score'] >= DEALER['score']) &&  blackjackGame['isStand'] === true)
     {
             let card = randomCard();
             showCard(card, DEALER);
             updateScore(card, DEALER);
             showScore(DEALER);
             await sleep(900);
+        if(DEALER['score'] > YOU['score'])
+        {
+                blackjackGame["turnsOver"] = true;
+                let winner = computeWinner();
+                showResult(winner);
+        
+                return;
+        }
+        if(DEALER['score'] === YOU['score'])
+        {
+                blackjackGame["turnsOver"] = true;
+                let winner = computeWinner();
+                showResult(winner);
+        
+                return;
+        }
     }
         blackjackGame["turnsOver"] = true;
         let winner = computeWinner();

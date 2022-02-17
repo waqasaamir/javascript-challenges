@@ -181,6 +181,7 @@ let blackjackGame = {
   draws: 0,
   isStand: false,
   turnsOver: false,
+  isHit: false,
 };
 
 const YOU = blackjackGame["you"];
@@ -203,12 +204,15 @@ document
   .addEventListener("click", blackjackDeal);
 
 function blackjackhit() {
+
   if (blackjackGame["isStand"] === false) {
+    blackjackGame['isHit'] = true;
     let card = randomCard();
     showCard(card, YOU);
     updateScore(card, YOU);
     showScore(YOU);
   }
+
 }
 
 function randomCard() {
@@ -282,8 +286,10 @@ function sleep(ms){
 }
 
 async function dealerLogic(){
+   if(blackjackGame['isHit'] === true){
     blackjackGame['isStand'] = true;
-    while(DEALER['score'] < 16 && blackjackGame['isStand'] === true)
+    blackjackGame['isHit'] = false;
+    while((DEALER['score'] < 16 && DEALER['score'] <= YOU['score']) && blackjackGame['isStand'] === true)
     {
             let card = randomCard();
             showCard(card, DEALER);
@@ -294,6 +300,7 @@ async function dealerLogic(){
         blackjackGame["turnsOver"] = true;
         let winner = computeWinner();
         showResult(winner);
+   }
 }
 //update
 function computeWinner() {
@@ -329,15 +336,15 @@ function showResult(winner) {
   let message, messageColor;
   if (blackjackGame["turnsOver"] === true) {
     if (winner === YOU) {
+      winSound.play();
       document.querySelector("#wins").textContent = blackjackGame["wins"];
       message = "You Won!";
       messageColor = "green";
-      winSound.play();
     } else if (winner === DEALER) {
+      lossSound.play();
       document.querySelector("#losses").textContent = blackjackGame["losses"];
       message = "You Lost!";
       messageColor = "red";
-      lossSound.play();
     } else {
       document.querySelector("#draws").textContent = blackjackGame["draws"];
       message = "You Drew!";
